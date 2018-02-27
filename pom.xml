@@ -22,6 +22,7 @@
         <dubbo.version>2.5.3</dubbo.version>
         <zkclient.version>0.1</zkclient.version>
         <zookeeper.version>3.3.6</zookeeper.version>
+        <kafka.version>0.8.0</kafka.version>
     </properties>
 
     <dependencyManagement>
@@ -96,6 +97,13 @@
                 <version>${zookeeper.version}</version>
             </dependency>
             <!--zookeeper end-->
+            <!--Kafka start-->
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka_2.10</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+            <!--Kafka end-->
             <!--test-->
             <dependency>
                 <groupId>junit</groupId>
