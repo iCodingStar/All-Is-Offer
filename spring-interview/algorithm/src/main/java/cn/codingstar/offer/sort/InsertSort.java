@@ -22,6 +22,8 @@ public class InsertSort extends BaseSort {
             for (int j = i; j > 0; j--) {
                 if (array[j] < array[j - 1]) {
                     swap(array, j, j - 1);
+                }else {
+                    break;
                 }
                 print(array);
             }
