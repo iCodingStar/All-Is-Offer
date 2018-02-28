@@ -18,4 +18,8 @@ public abstract class BaseSort implements Sort{
         System.out.println();
     }
 
+    public static int[] dataSet(){
+        return new int[]{1, 8, 3, 5, 9, 4, 2, 7, 6,};
+    }
+
 }

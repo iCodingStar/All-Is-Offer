@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @file: BubbleSort.java
  * @time: 2018/2/28 15:03
  * @software: Intellij Idea
- * @desc: 冒泡排序
+ * @desc: 冒泡排序 : O(n^2)
  */
 public class BubbleSort extends BaseSort {
 
