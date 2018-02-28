@@ -7,7 +7,7 @@ package cn.codingstar.offer.sort;
  * @file: QuickSort.java
  * @time: 2018/2/28 15:32
  * @software: Intellij Idea
- * @desc: 快速排序
+ * @desc: 快速排序 nlog(n)
  * @link :https://www.cnblogs.com/codeskiller/p/6360870.html
  */
 public class QuickSort extends BaseSort {

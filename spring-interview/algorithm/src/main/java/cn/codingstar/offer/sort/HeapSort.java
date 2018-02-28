@@ -7,7 +7,7 @@ package cn.codingstar.offer.sort;
  * @file: HeapSort.java
  * @time: 2018/2/28 17:34
  * @software: Intellij Idea
- * @desc:
+ * @desc: 堆排序nlog(n)
  */
 public class HeapSort extends BaseSort {
 

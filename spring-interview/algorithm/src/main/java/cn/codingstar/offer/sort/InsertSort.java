@@ -7,7 +7,7 @@ package cn.codingstar.offer.sort;
  * @file: InsertSort.java
  * @time: 2018/2/28 20:06
  * @software: Intellij Idea
- * @desc:
+ * @desc: 插入排序 O(n^2)
  */
 public class InsertSort extends BaseSort {
     @Override
