@@ -17,4 +17,6 @@ public interface Sort {
 
     void print(int[] array);
 
+    void swap(int[] array, int _index, int index_);
+
 }

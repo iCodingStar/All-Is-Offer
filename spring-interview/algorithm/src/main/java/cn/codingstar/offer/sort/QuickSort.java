@@ -80,6 +80,11 @@ public class QuickSort extends BaseSort {
         return high;
     }
 
+    /**
+     * 非递归实现
+     *
+     * @param array
+     */
     @Override
     public void _sort(int[] array) {
         if (array == null || array.length <= 1) {

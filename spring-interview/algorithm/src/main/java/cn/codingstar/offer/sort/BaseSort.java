@@ -9,7 +9,7 @@ package cn.codingstar.offer.sort;
  * @software: Intellij Idea
  * @desc:
  */
-public abstract class BaseSort implements Sort{
+public abstract class BaseSort implements Sort {
 
     public void print(int[] array) {
         for (int num : array) {
@@ -18,7 +18,14 @@ public abstract class BaseSort implements Sort{
         System.out.println();
     }
 
-    public static int[] dataSet(){
+    @Override
+    public void swap(int[] array, int _index, int index_) {
+        int temp = array[_index];
+        array[_index] = array[index_];
+        array[index_] = temp;
+    }
+
+    public static int[] dataSet() {
         return new int[]{1, 8, 3, 5, 9, 4, 2, 7, 6,};
     }
 
