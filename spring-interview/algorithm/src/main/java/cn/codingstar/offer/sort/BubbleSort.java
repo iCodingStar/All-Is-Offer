@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @software: Intellij Idea
  * @desc: 冒泡排序
  */
-public class BubbleSort implements Sort {
+public class BubbleSort extends BaseSort {
 
     /**
      * 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
@@ -56,14 +56,6 @@ public class BubbleSort implements Sort {
                 print(array);
             }
         }
-    }
-
-    @Override
-    public void print(int[] array) {
-        for (int num : array) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
     }
 
     public static void main(String[] args) {

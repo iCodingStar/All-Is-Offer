@@ -13,8 +13,8 @@ public interface Sort {
 
     void sort(int[] array);
 
-    void print(int[] array);
-
     void _sort(int[] array);
+
+    void print(int[] array);
 
 }
