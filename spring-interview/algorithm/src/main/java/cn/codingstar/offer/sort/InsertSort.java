@@ -22,7 +22,8 @@ public class InsertSort extends BaseSort {
             for (int j = i; j > 0; j--) {
                 if (array[j] < array[j - 1]) {
                     swap(array, j, j - 1);
-                }else {
+                } else {
+                    // 前面已经是有序的数组，因而无需再前相比较
                     break;
                 }
                 print(array);
