@@ -1,0 +1,50 @@
+{
+  "title": "互联网面试笔记",
+  "description": "本书主要是对互联网面试中常见的基础知识做总结和分析",
+  "language": "zh",
+  "plugins": [
+    "duoshuo",
+    "github",
+    "editlink",
+    "prism",
+    "-highlight",
+    "baidu",
+    "splitter",
+    "sitemap",
+    "latex-codecogs",
+    "-fontsettings",
+    "donate"
+  ],
+  "pluginsConfig": {
+    "duoshuo": {
+      "short_name": "zhengjl",
+      "theme": "default"
+    },
+    "github": {
+      "url": "https://github.com/zhengjianglong915"
+    },
+    "editlink": {
+      "base": "https://zhengjianglong.gitbooks.io/note-of-interview/content/",
+      "label": "编辑本页"
+    },
+    "baidu": {
+        "token": "35d9061f8db12b29ed7072cdf69667f4"
+    },
+    "sitemap": {
+        "hostname": "http://zhengjianglong.leanote.com"
+    },
+    "fontsettings": {
+      "theme": "white", 
+      "family": "sans",
+      "size": 3
+     },
+     "donate": {
+        "wechat": "http://wx4.sinaimg.cn/mw690/a196fc93ly1fdun4kzymej20i10i8tb6.jpg",
+        "alipay": "http://wx3.sinaimg.cn/mw690/a196fc93ly1fdun4koc4rj208t08lgme.jpg",
+        "title": "感谢支持!!",
+        "button": "赏",
+        "alipayText": "支付宝打赏",
+        "wechatText": "微信打赏"
+    }
+  }
+}
