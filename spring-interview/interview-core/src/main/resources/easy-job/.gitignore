@@ -1,0 +1,5 @@
+/project
+/.idea/*
+*.class
+/target/*
+/Git/*.pptx
