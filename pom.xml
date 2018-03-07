@@ -23,6 +23,7 @@
         <zkclient.version>0.1</zkclient.version>
         <zookeeper.version>3.3.6</zookeeper.version>
         <kafka.version>0.8.0</kafka.version>
+        <xmemcached.version>2.0.0</xmemcached.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +113,14 @@
                 <scope>test</scope>
             </dependency>
             <!--test end-->
+
+            <!--cache start-->
+            <dependency>
+                <groupId>com.googlecode.xmemcached</groupId>
+                <artifactId>xmemcached</artifactId>
+                <version>${xmemcached.version}</version>
+            </dependency>
+            <!--cache end-->
         </dependencies>
     </dependencyManagement>
 
