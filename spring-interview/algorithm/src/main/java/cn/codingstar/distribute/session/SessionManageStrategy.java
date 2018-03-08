@@ -9,6 +9,7 @@ package cn.codingstar.distribute.session;
  * @software: IntelliJ IDEA
  * @version: 1.0
  * @resource: http://www.cnblogs.com/xrq730/p/4954152.html
+ *            http://blog.csdn.net/t0591/article/details/53636599
  * @desc: 分布式环境中session管理策略
  */
 public class SessionManageStrategy {
