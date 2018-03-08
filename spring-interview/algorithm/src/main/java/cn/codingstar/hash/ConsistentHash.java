@@ -11,5 +11,8 @@ package cn.codingstar.hash;
  * @desc: 一致性哈希算法研究与实现
  * @resource:
  */
-public class ConsistentHash {
+public interface ConsistentHash {
+
+    String getServer(String node);
+
 }
