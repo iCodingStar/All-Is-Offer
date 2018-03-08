@@ -1,4 +1,4 @@
-package cn.codingstar.hash;
+package cn.codingstar.distribute.hash;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -6,7 +6,7 @@ import java.util.TreeMap;
 /**
  * 导入hash生成方法
  */
-import static cn.codingstar.hash.util.HashGenerator.getHash;
+import static cn.codingstar.distribute.util.HashGenerator.getHash;
 
 /**
  * @author: CodingStar

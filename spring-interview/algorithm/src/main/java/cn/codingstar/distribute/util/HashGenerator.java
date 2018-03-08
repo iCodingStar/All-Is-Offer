@@ -1,4 +1,4 @@
-package cn.codingstar.hash.util;
+package cn.codingstar.distribute.util;
 
 /**
  * @author: CodingStar
