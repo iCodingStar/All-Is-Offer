@@ -37,4 +37,8 @@ public class PrintLinkedListFromTailToHead {
         }
         printLinkedListByReverse(root);
     }
+
+    /**
+     * 总结：
+     */
 }
