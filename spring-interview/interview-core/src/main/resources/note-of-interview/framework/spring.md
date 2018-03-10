@@ -152,7 +152,7 @@ http://www.cnblogs.com/ITtangtang/p/3978349.html
 
 			<constructor-arg type="java.lang.String" value="yoo"/>
 			<!-- 也可以使用index来匹配-->
-			<!--<constructor-arg index="1" value="42"/>-->
+			<!--<constructor-arg images.mysql.index="1" value="42"/>-->
 			<constructor-arg><ref bean="helloService"/></constructor-arg>
 		</bean>
 
