@@ -6,6 +6,10 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -45,6 +49,19 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("EchoServer : " + msg);
+        //TimeUnit.SECONDS.sleep(2);
+//        while (true) {
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//            StringBuilder data = new StringBuilder();
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                data.append(line);
+//            }
+//            ByteBuf buf = Unpooled.buffer(data.length());
+//            buf.writeBytes(data.toString().getBytes());
+//            ctx.write(msg);
+//        }
+        ctx.write(msg);
     }
 
     @Override
@@ -54,7 +71,7 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        logger.log(Level.WARNING,"Unexpected exception from downstream");
+        logger.log(Level.WARNING, "Unexpected exception from downstream");
         ctx.close();
     }
 }
