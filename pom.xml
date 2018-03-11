@@ -24,6 +24,7 @@
         <zookeeper.version>3.3.6</zookeeper.version>
         <kafka.version>0.8.0</kafka.version>
         <xmemcached.version>2.0.0</xmemcached.version>
+        <netty.version>4.1.22.Final</netty.version>
     </properties>
 
     <dependencyManagement>
@@ -121,6 +122,14 @@
                 <version>${xmemcached.version}</version>
             </dependency>
             <!--cache end-->
+
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
