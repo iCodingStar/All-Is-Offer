@@ -16,7 +16,7 @@ import io.netty.handler.logging.LoggingHandler;
  * @time: 18-3-11 下午2:46
  * @software: IntelliJ IDEA
  * @version: 1.0
- * @resource:
+ * @resource: https://www.jianshu.com/p/1123c9164e3e
  * @desc:
  */
 public class EchoServer {
