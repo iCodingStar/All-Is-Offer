@@ -1,0 +1,2 @@
+This is a test data for file channel test!
+enjoy  it !
