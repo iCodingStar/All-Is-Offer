@@ -33,28 +33,28 @@
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analyzers-common</artifactId>
-            <version>5.3.1</version>
+            <version>6.1.0</version>
         </dependency>
 
         <!--中文分词器-->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analyzers-smartcn</artifactId>
-            <version>5.3.1</version>
+            <version>6.1.0</version>
         </dependency>
 
         <!--对分词索引查询解析-->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-queryparser</artifactId>
-            <version>5.3.1</version>
+            <version>6.1.0</version>
         </dependency>
 
         <!--检索关键字高亮显示-->
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-highlighter</artifactId>
-            <version>5.3.1</version>
+            <version>6.1.0</version>
         </dependency>
 
         <dependency>
