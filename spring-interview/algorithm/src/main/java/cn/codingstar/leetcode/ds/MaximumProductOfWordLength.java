@@ -8,7 +8,7 @@ package cn.codingstar.leetcode.ds;
  * @time: 18-3-13 下午10:13
  * @software: IntelliJ IDEA
  * @version: 1.0
- * @resource: https://leetcode.com/problems/maximum-product-of-word-lengths/description/
+ * @resource: [Leetcode : 318. Maximum Product of Word Lengths (Medium)](https://leetcode.com/problems/maximum-product-of-word-lengths/description/)
  * @desc: 位图法
  */
 /*
