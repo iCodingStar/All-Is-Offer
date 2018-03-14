@@ -121,8 +121,7 @@ public class EchoServerHandler implements Runnable {
                     // 将缓冲区可读字节数据复制到bytes数组
                     buffer.get(bytes);
                     // 处理数据
-                    String message = new String(bytes);
-                    message = message.substring(0, message.lastIndexOf("\r\n"));
+                    String message = new String(bytes).toString();
                     // 获取客户端信息
                     InetSocketAddress address = (InetSocketAddress) socketChannel.getRemoteAddress();
                     System.out.println("客户端[" + address.getHostName() + ":" + address.getPort() + "] > " + message);
