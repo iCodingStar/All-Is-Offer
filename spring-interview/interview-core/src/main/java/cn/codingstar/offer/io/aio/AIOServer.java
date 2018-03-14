@@ -15,7 +15,7 @@ import cn.codingstar.offer.io.aio.handler.AsyncServerHandler;
  */
 public class AIOServer {
 
-    private static int DEFAULT_PORT = 2045;
+    private static int DEFAULT_PORT = 9999;
     private static AsyncServerHandler serverHandle;
     public volatile static long clientCount = 0;
 
