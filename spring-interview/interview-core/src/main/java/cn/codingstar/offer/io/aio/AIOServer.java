@@ -10,7 +10,7 @@ import cn.codingstar.offer.io.aio.handler.AsyncServerHandler;
  * @time: 18-3-14 下午4:49
  * @software: IntelliJ IDEA
  * @version: 1.0
- * @resource:
+ * @resource: http://blog.anxpp.com/index.php/archives/895/
  * @desc: 异步服务器
  */
 public class AIOServer {

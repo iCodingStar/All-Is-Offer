@@ -25,6 +25,8 @@
         <kafka.version>0.8.0</kafka.version>
         <xmemcached.version>2.0.0</xmemcached.version>
         <netty.version>4.1.22.Final</netty.version>
+        <jdbc.driver.version>5.1.40</jdbc.driver.version>
+        <druid.version>1.1.8</druid.version>
     </properties>
 
     <dependencyManagement>
@@ -130,6 +132,21 @@
                 <version>${netty.version}</version>
             </dependency>
 
+            <!--jdbc driver-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${jdbc.driver.version}</version>
+            </dependency>
+            <!--jdbc driver-->
+
+            <!--druid-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--druid-->
         </dependencies>
     </dependencyManagement>
 
