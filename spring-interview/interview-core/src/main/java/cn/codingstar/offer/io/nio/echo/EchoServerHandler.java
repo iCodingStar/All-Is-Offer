@@ -75,7 +75,8 @@ public class EchoServerHandler implements Runnable {
                 while (it.hasNext()) {
                     key = it.next();
                     it.remove();
-
+                    // 处理当前的事件
+                    handleInput(key);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -121,9 +122,18 @@ public class EchoServerHandler implements Runnable {
                     buffer.get(bytes);
                     // 处理数据
                     String message = new String(bytes);
+                    message = message.substring(0, message.lastIndexOf("\r\n"));
                     // 获取客户端信息
                     InetSocketAddress address = (InetSocketAddress) socketChannel.getRemoteAddress();
                     System.out.println("客户端[" + address.getHostName() + ":" + address.getPort() + "] > " + message);
+                    // 判断消息是否为结束会话
+                    if (message.equals("quit")) {
+                        System.out.println("与客户端[" + address.getHostName() + ":" + address.getPort() + "]结束连接...");
+                        // 结束会话
+                        key.cancel();
+                        socketChannel.close();
+                        return;
+                    }
                     // 相应客户端
                     response(socketChannel, message);
                 } else if (readBytes == 0) {
