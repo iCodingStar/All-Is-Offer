@@ -27,6 +27,7 @@ public class ServerHandler implements Runnable {
 
     @Override
     public void run() {
+        System.out.println(Thread.currentThread() + " starting response the request ....");
         BufferedReader reader = null;
         PrintWriter writer = null;
         try {
