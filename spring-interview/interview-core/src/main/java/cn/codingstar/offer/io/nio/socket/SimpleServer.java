@@ -1,4 +1,4 @@
-package cn.codingstar.offer.nio.socket;
+package cn.codingstar.offer.io.nio.socket;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -53,38 +53,47 @@ public class SimpleServer {
         while (true) {
             // 如果没有准备好的Socket,select方法会被阻塞一段时间并返回0
             // 如果有准备好的Socket,select方法会返回准备好的socket的个数
-            int n = selector.select();
+            // select 系统调用
+            int n = selector.select(1000);
+
             if (n == 0) {
                 continue;
             }
 
             Iterator<SelectionKey> its = selector.selectedKeys().iterator();
+
+            // 循环处理已经就绪的事件
             while (its.hasNext()) {
                 SelectionKey key = its.next();
+                its.remove();
                 /**
                  * 如果是可接受事件
                  */
-                if (key.isAcceptable()) {
-                    SocketChannel socketChannel = ((ServerSocketChannel) key.channel()).accept();
-                    socketChannel.configureBlocking(false);
-                    /**
-                     * 将选择器注册到连接客户端的信道
-                     * 并指定信道key值得属性为可读
-                     * 同时为该信道指定关联附件
-                     */
-                    socketChannel.register(key.selector(), SelectionKey.OP_READ, ByteBuffer.allocate(bufSize));
-                }
-                if (key.isReadable()) {
-
-                }
-                if (key.isWritable()) {
-
-                }
-                if (key.isConnectable()) {
-
-                }
                 if (key.isValid()) {
+                    if (key.isAcceptable()) {
+                        // 有新的连接进来的时候,处理新连接
+                        // SocketChannel socketChannel = ((ServerSocketChannel) key.channel()).accept();
+                        ServerSocketChannel newServerSocketChannel = (ServerSocketChannel) key.channel();
 
+                        SocketChannel socketChannel = serverSocketChannel.accept();
+
+                        socketChannel.configureBlocking(false);
+                        /**
+                         * 将选择器注册到连接客户端的信道
+                         * 并指定信道key值得属性为可读
+                         * 同时为该信道指定关联附件
+                         */
+                        socketChannel.register(key.selector(), SelectionKey.OP_READ, ByteBuffer.allocate(bufSize));
+                    }
+                    if (key.isReadable()) {
+                        // 读数据处理
+                    }
+                    if (key.isWritable()) {
+
+                    }
+                    if (key.isConnectable()) {
+
+                    }
                 }
             }
         }

@@ -1,4 +1,4 @@
-package cn.codingstar.offer.nio.file;
+package cn.codingstar.offer.io.nio.file;
 
 import java.io.File;
 import java.io.IOException;
