@@ -18,11 +18,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Application {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        // 创建Spring容器管理上下文
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        applicationContext.getEnvironment().setActiveProfiles("dev");
         // 获取对应类型的对象
         SimpleBean bean = applicationContext.getBean(SimpleBean.class);
         // 调用对象
         bean.print("Spring IOC is great !");
+        // 关闭Spring容器
+        applicationContext.close();
     }
 
 }
