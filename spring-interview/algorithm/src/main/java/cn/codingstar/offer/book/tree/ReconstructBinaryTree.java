@@ -1,4 +1,7 @@
-package cn.codingstar.offer.book.chapter01;
+package cn.codingstar.offer.book.tree;
+
+
+import cn.codingstar.offer.book.tree.node.TreeNode;
 
 /**
  * @author: CodingStar
@@ -16,16 +19,6 @@ package cn.codingstar.offer.book.chapter01;
  * {4,7,2,1,5,3,8,6}，则重建二叉树并返回。
  */
 public class ReconstructBinaryTree {
-
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-    }
 
     /**
      * 根据前序遍历和中序遍历重建二叉树

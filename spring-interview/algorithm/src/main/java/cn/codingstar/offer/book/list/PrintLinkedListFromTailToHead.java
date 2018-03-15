@@ -1,4 +1,6 @@
-package cn.codingstar.offer.book.chapter01;
+package cn.codingstar.offer.book.list;
+
+import cn.codingstar.offer.book.list.node.ListNode;
 
 /**
  * @author: CodingStar

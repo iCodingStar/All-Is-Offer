@@ -1,4 +1,4 @@
-package cn.codingstar.offer.book.chapter01;
+package cn.codingstar.offer.book.list.node;
 
 /**
  * @author: CodingStar
@@ -13,9 +13,9 @@ package cn.codingstar.offer.book.chapter01;
  */
 public class ListNode<T> {
 
-    T value;
+    public T value;
 
-    ListNode<T> next;
+    public ListNode<T> next;
 
     public ListNode() {
         this.value = null;
