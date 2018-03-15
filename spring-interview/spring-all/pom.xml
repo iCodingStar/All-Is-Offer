@@ -14,6 +14,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>spring-boot-start</module>
+        <module>spring-core</module>
     </modules>
 
     <properties>
