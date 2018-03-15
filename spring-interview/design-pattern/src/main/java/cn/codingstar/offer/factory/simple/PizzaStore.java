@@ -1,7 +1,4 @@
-package cn.codingstar.offer;
-
-import cn.codingstar.offer.factory.SimplePizzaFactory;
-import cn.codingstar.offer.factory.simple.Pizza;
+package cn.codingstar.offer.factory.simple;
 
 /**
  * @author: CodingStar

@@ -1,6 +1,5 @@
-package cn.codingstar.offer.factory;
+package cn.codingstar.offer.factory.simple;
 
-import cn.codingstar.offer.factory.simple.Pizza;
 import cn.codingstar.offer.factory.simple.impl.CheesePiazza;
 import cn.codingstar.offer.factory.simple.impl.GreekPizza;
 import cn.codingstar.offer.factory.simple.impl.SweetPizza;
@@ -13,7 +12,7 @@ import cn.codingstar.offer.factory.simple.impl.SweetPizza;
  * @time: 18-3-15 上午11:07
  * @software: IntelliJ IDEA
  * @version: 1.0
- * @resource:
+ * @resource: https://github.com/iCodingStar/Interview-Notebook/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md#1-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82
  * @desc: 简单工厂:简单工厂不是设计模式，更像是一种编程习惯。
  */
 public class SimplePizzaFactory {
