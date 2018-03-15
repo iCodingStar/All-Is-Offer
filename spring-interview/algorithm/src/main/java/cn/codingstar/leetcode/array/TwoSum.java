@@ -90,8 +90,8 @@ public class TwoSum {
     }
 
     public static void main(String[] args) {
-        int[] data = new int[]{2,4,4};
-        System.out.println(twoSum_(data,6));
+        int[] data = new int[]{2, 4, 4};
+        System.out.println(twoSum_(data, 6));
     }
 
 }
