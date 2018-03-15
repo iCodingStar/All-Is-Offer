@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @software: IntelliJ IDEA
  * @version: 1.0
  * @resource:
- * @desc:
+ * @desc: N种珠子组成M长度的项链的方法
  */
 public class PearlsSelect {
 
