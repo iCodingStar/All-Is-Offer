@@ -123,8 +123,109 @@ public boolean compareAndSet
 > 锁机制保证了只有获得锁的线程能够操作锁定的内存区域。JVM内部实现了很多种锁机制，有偏向锁，轻量级锁和互斥锁，有意思的是除了偏向锁，JVM实现锁的方式都用到的循环CAS，当一个线程想进入同步块的时候使用循环CAS的方式来获取锁，当它退出同步块的时候使用循环CAS释放锁。
 
 ### 可重入锁与不可重如锁
+[参考资料](https://www.cnblogs.com/dj3839/p/6580765.html)
+#### 不可重入锁
+* Java实现
+```java
+public class UnReentrantLock {
 
+    private boolean isLocked = false;
 
+    public synchronized void lock() throws InterruptedException {
+        // 如果显示已经锁着，阻塞自己
+        while (isLocked) {
+            wait();
+        }
+        isLocked = true;
+    }
 
+    public synchronized void unlock() {
+        isLocked = false;
+        notify();
+    }
+}
+
+public class Counter {
+
+    UnReentrantLock lock = new UnReentrantLock();
+
+    public void print() throws InterruptedException {
+        lock.lock();
+
+    }
+
+    public void doAdd() throws InterruptedException {
+        lock.lock();
+        // do Something
+        lock.unlock();
+    }
+
+    public static void main(String[] args) {
+        // 当调用print()方法时，获得了锁，这时就无法再调用doAdd()方法，
+        // 这时必须先释放锁才能调用，所以称这种锁为不可重入锁，也叫自旋锁。
+    }
+}
+```
+当调用print()方法时，获得了锁，这时就无法再调用doAdd()方法，这时必须先释放锁才能调用，所以称这种锁为不可重入锁，也叫自旋锁。
+
+#### 重入锁
+* Java实现
+```java
+public class UserReentrantLock {
+
+    private boolean isLocked = false;
+    Thread lockedBy = null;
+    int lockedCount = 0;
+
+    public synchronized void lock() throws InterruptedException {
+        Thread currentThread = Thread.currentThread();
+        // 如果已经被锁住，并且不是当前的线程
+        while (isLocked && lockedBy != currentThread) {
+            wait();
+        }
+        isLocked = true;
+        lockedCount++;
+        lockedBy = currentThread;
+    }
+
+    public synchronized void unlock() {
+        if (Thread.currentThread() == this.lockedBy) {
+            lockedCount--;
+            if (lockedCount == 0) {
+                isLocked = false;
+                notify();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // 相对来说，可重入就意味着：线程可以进入任何一个它已经拥有的锁所同步着的代码块。
+    }
+}
+
+```
+> 第一个线程执行print()方法，得到了锁，使lockedBy等于当前线程，也就是说，执行的这个方法的线程获得了这个锁，执行add()方法时，同样要先获得锁，因不满足while循环的条件，也就是不等待，继续进行，将此时的lockedCount变量，也就是当前获得锁的数量加一，当释放了所有的锁，才执行notify()。如果在执行这个方法时，有第二个线程想要执行这个方法，因为lockedBy不等于第二个线程，导致这个线程进入了循环，也就是等待，不断执行wait()方法。只有当第一个线程释放了所有的锁，执行了notify()方法，第二个线程才得以跳出循环，继续执行。
+
+* java中常用的可重入锁
+   * synchronized
+   * java.util.concurrent.locks.ReentrantLock
+   
 ## ReentrantLock与synchronized的区别
 
+* 可重入性
+> 从名字上理解，ReenTrantLock的字面意思就是再进入的锁，其实synchronized关键字所使用的锁也是可重入的，两者关于这个的区别不大。两者都是同一个线程没进入一次，锁的计数器都自增1，所以要等到锁的计数器下降为0时才能释放锁。
+
+* 功能性
+  * synchronized 使用比较简洁，并且由编译器去保证锁的加锁和释放，
+  * ReentrantLock需要手工声明加锁和释放，为了避免忘记手工释放造成死锁，最好在finally中声明释放锁。
+
+* 锁的粒度
+  * ReentrantLock优于synchronized
+
+* ReentrantLock优势
+  * 可以指定公平锁与非公平所锁，而synchronized只能是非公平所。公平是指先等待的线程可以先获得锁。
+  * 提供了一个Condition类，用来分组唤醒需要被唤醒的线程们，而不像synchronized那样随机唤醒一个线程或者所有线程。
+  * 提供了一种可以中断等待锁的线程的机制，通过lock.lockInterruptibly()来实现这个机制。
+
+* ReentrantLock实现原理
+  * ReentrantLock是一种自旋锁，通过循环调用CAS操作来实现加锁。它的性能比较好也是因为避免了使线程进入内核态的阻塞状态。想尽办法避免线程进入内核的阻塞状态是我们去分析和理解锁设计的关键钥匙。
