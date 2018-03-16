@@ -48,6 +48,7 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        Thread.sleep(2);
         System.out.println("EchoServer : " + msg);
         //TimeUnit.SECONDS.sleep(2);
 //        while (true) {

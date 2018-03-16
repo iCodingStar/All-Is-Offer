@@ -31,6 +31,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
             ctx.write(Unpooled.copiedBuffer("Good Bye _^^_".getBytes()));
             ctx.close();
         }
+        Thread.sleep(1);
         // 将读取到的信息返回
         ctx.write(msg);
     }
