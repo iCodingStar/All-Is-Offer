@@ -56,3 +56,13 @@ fabric.properties
 target/
 */target
 */*/test
+proxy/
+spring-interview/design-pattern/src/main/java/cn/codingstar/offer/component/
+spring-interview/design-pattern/src/main/java/cn/codingstar/offer/facade/
+spring-interview/design-pattern/src/main/java/cn/codingstar/offer/iterator/
+spring-interview/design-pattern/src/main/java/cn/codingstar/offer/proxy/
+spring-interview/design-pattern/src/main/java/cn/codingstar/offer/strategy/
+spring-interview/design-pattern/src/main/java/cn/codingstar/offer/template/
+spring-interview/interview-core/src/main/java/cn/codingstar/offer/database/druid/
+spring-interview/interview-core/src/main/java/cn/codingstar/offer/proxy/aop/
+spring-interview/interview-core/src/main/java/cn/codingstar/offer/proxy/mybatis/
