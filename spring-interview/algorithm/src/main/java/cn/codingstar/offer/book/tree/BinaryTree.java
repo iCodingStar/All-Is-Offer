@@ -17,6 +17,17 @@ import java.util.*;
  */
 public class BinaryTree {
 
+    class TreeLinkNode {
+        int val;
+        TreeLinkNode left = null;
+        TreeLinkNode right = null;
+        TreeLinkNode next = null;/*指向父结点*/
+
+        TreeLinkNode(int val) {
+            this.val = val;
+        }
+    }
+
     /**
      * 层次打印二叉树:使用队列打印即可
      *
@@ -130,5 +141,40 @@ public class BinaryTree {
             }
         }
         return result;
+    }
+
+    /**
+     * 找到中序遍历某一个结点的下一个结点
+     * 1. 如果一个结点有右子树，那么它的下一个结点就是右子树中最左子结点
+     * 2. 如果结点是他父结点的左子结点，那么下一个结点就是它的父结点
+     * 3. 如果一个结点不仅没有右子树，而且还是它父结点的左子结点，我们可以沿着它的父结点向上遍历，
+     * 直到找到一个是它父结点的左子结点的结点，如果找得到，那么这个结点的父结点就是要找的结点。
+     *
+     * @param pNode
+     * @return
+     */
+    public TreeLinkNode GetNext(TreeLinkNode pNode) {
+        if (pNode == null) {
+            return null;
+        }
+        TreeLinkNode pNext = null;
+        // 如果当前结点有右子树，目标结点就是当前结点右子树最左结点
+        if (pNode.right != null) {
+            TreeLinkNode pRight = pNode.right;
+            while (pRight.left != null) {
+                pRight = pRight.left;
+            }
+            pNext = pRight;
+        } else if (pNode.next != null) {//父结点必须不为空
+            // 如果当前结点没有右子树，向上遍历，找到第一个含有左子树的父结点
+            TreeLinkNode pCurrent = pNode;
+            TreeLinkNode pParent = pNode.next;
+            while (pParent != null && pCurrent == pParent.right) {
+                pCurrent = pParent;
+                pParent = pParent.next;
+            }
+            pNext = pParent;
+        }
+        return pNext;
     }
 }
