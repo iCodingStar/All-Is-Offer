@@ -24,11 +24,11 @@ public class Counter {
         final Counter cas = new Counter();
         List<Thread> list = new ArrayList<>();
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 3000; i++) {
             Thread t = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    for (int j = 0; j < 10000; j++) {
+                    for (int j = 0; j < 100000000; j++) {
                         cas.casCount();
                         cas.count();
                     }
