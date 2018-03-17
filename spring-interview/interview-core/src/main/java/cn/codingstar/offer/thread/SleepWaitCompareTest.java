@@ -59,4 +59,10 @@ public class SleepWaitCompareTest {
         Thread.sleep(3000);
         sleep.start();
     }
+
+    /**
+     * 1. sleep是线程的静态方法，wait是所有对象的方法
+     * 2. sleep方法不会释放对象锁，wait方法线程会释放对象锁
+     *
+     */
 }
