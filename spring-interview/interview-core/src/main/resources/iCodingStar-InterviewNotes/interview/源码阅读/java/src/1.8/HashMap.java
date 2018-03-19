@@ -666,7 +666,19 @@ public class HashMap<K, V> extends AbstractMap<K, V>
 
     /**
      * Implements Map.put and related methods
-     *
+     * Map.put和其他相关方法的实现需要的方法
+     * putVal方法可以分为下面的几个步骤:
+     * 1.如果哈希表为空，调用resize()创建一个哈希表。
+     * 2.如果指定参数hash在表中没有对应的桶，即为没有碰撞，直接将键值对插入到哈希表中即可。
+     * 3.如果有碰撞，遍历桶，找到key映射的节点
+     * 3.1桶中的第一个节点就匹配了，将桶中的第一个节点记录起来。
+     * 3.2如果桶中的第一个节点没有匹配，且桶中结构为红黑树，则调用红黑树对应的方法插入键值对。
+     * 3.3如果不是红黑树，那么就肯定是链表。遍历链表，如果找到了key映射的节点，就记录这个节点，退出循环。如果没有找到，在链表尾部插入节点。插入后，如果链的长度大于TREEIFY_THRESHOLD这个临界值，则使用treeifyBin方法把链表转为红黑树。
+     * 4.如果找到了key映射的节点，且节点不为null
+     * 4.1记录节点的vlaue。
+     * 4.2如果参数onlyIfAbsent为false，或者oldValue为null，替换value，否则不替换。
+     * 4.3返回记录下来的节点的value。
+     * 5.如果没有找到key映射的节点（2、3步中讲了，这种情况会插入到hashMap中），插入节点后size会加1，这时要检查size是否大于临界值threshold，如果大于会使用resize方法进行扩容。
      * @param hash         hash for key
      * @param key          the key
      * @param value        the value to put
@@ -679,6 +691,7 @@ public class HashMap<K, V> extends AbstractMap<K, V>
         Node<K, V>[] tab;
         Node<K, V> p;
         int n, i;
+        // 如果hash表为空，则调用resize创建一个hash表
         if ((tab = table) == null || (n = tab.length) == 0)
             n = (tab = resize()).length;
         if ((p = tab[i = (n - 1) & hash]) == null)
@@ -721,6 +734,15 @@ public class HashMap<K, V> extends AbstractMap<K, V>
     }
 
     /**
+     * 对table进行初始化或者扩容。
+     * 如果table为null，则对table进行初始化
+     * 如果对table扩容，因为每次扩容都是翻倍，与原来计算（n-1）&hash的结果相比，节点要么就在原来的位置，要么就被分配到“原位置+旧容量”这个位置
+     * resize的步骤总结为:
+     * 1.计算扩容后的容量，临界值。
+     * 2.将hashMap的临界值修改为扩容后的临界值
+     * 3.根据扩容后的容量新建数组，然后将hashMap的table的引用指向新数组。
+     * 4.将旧数组的元素复制到table中。
+     *
      * Initializes or doubles table size.  If null, allocates in
      * accord with initial capacity target held in field threshold.
      * Otherwise, because we are using power-of-two expansion, the
