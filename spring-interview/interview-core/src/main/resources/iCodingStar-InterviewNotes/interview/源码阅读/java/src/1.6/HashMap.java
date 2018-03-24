@@ -376,15 +376,23 @@ public class HashMap<K, V>
     void transfer(Entry[] newTable) {
         Entry[] src = table;
         int newCapacity = newTable.length;
+        // 将原hash表中的每一个链表依次复制到新表
         for (int j = 0; j < src.length; j++) {
+            // 保存第j个桶中的元素
             Entry<K, V> e = src[j];
             if (e != null) {
+                // 先将原表当前桶置为null,消除引用
                 src[j] = null;
+                // 循环复制到新表
                 do {
+                    // 保存下一个结点
                     Entry<K, V> next = e.next;
+                    // 为e结点寻找新表的位置
                     int i = indexFor(e.hash, newCapacity);
+                    // 采用头插法插入新元素
                     e.next = newTable[i];
                     newTable[i] = e;
+                    // 进行下一个元素的插入
                     e = next;
                 } while (e != null);
             }
