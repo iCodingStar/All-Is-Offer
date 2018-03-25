@@ -1,23 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-interview</artifactId>
+        <artifactId>spring-all</artifactId>
         <groupId>cn.codingstar.offer</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-all</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>spring-aop</artifactId>
+    <packaging>jar</packaging>
 
-    <name>spring-all</name>
+    <name>spring-aop</name>
     <url>http://maven.apache.org</url>
-    <modules>
-        <module>spring-boot-start</module>
-        <module>spring-core</module>
-        <module>spring-aop</module>
-        <module>spring-tx</module>
-    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
