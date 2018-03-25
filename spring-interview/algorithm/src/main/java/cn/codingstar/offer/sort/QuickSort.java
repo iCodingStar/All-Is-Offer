@@ -23,7 +23,7 @@ public class QuickSort extends BaseSort {
     private void qsort(int[] array, int low, int high) {
         if (low < high) {
             //int pivotIndex = partition(array, low, high);
-            int pivotIndex = rightPartition(array, low, high);
+            int pivotIndex = partition(array, low, high);
             qsort(array, 0, pivotIndex - 1);
             qsort(array, pivotIndex + 1, high);
         }
