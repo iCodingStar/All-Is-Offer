@@ -1,34 +1,35 @@
-package cn.codingstar.offer.sort;
+package cn.codingstar.offer._sort;
 
 /**
- * @version: java8
  * @author: CodingStar
  * @contact: shixing.cs@gmail.com
+ * @site: http://www.codingstar.cn
  * @file: SelectionSort.java
- * @time: 2018/2/28 17:14
- * @software: Intellij Idea
- * @desc:选择排序 O(n ^ 2)
+ * @time: 18-3-26 下午2:46
+ * @software: IntelliJ IDEA
+ * @version: 1.0
+ * @resource:
+ * @desc: 选择排序
  */
 public class SelectionSort extends BaseSort {
 
     @Override
     public void sort(int[] array) {
-        if (array == null || array.length <= 1) {
+
+        if (array == null || array.length < 2) {
             return;
         }
-        print(array);
-        for (int i = 0; i < array.length; i++) {
-            // 寻找array[i,array.length-1]中的最小值
+
+        for (int i = 0; i < array.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < array.length; j++) {
-                if (array[j] < array[minIndex]) {
+                if (array[minIndex] > array[j]) {
                     minIndex = j;
                 }
             }
             swap(array, i, minIndex);
-            print(array);
         }
-        print(array);
+
     }
 
     @Override
@@ -37,10 +38,9 @@ public class SelectionSort extends BaseSort {
     }
 
     public static void main(String[] args) {
+        SelectionSort sort = new SelectionSort();
         int[] array = BaseSort.dataSet();
-        Sort sort = new SelectionSort();
         sort.sort(array);
         sort.print(array);
-
     }
 }
