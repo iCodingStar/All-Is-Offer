@@ -42,11 +42,66 @@ public class BinarySearch {
         return index;
     }
 
+    /**
+     * 返回目标值的最小索引值
+     *
+     * @param array
+     * @param target
+     * @return
+     */
+    public int lowerBounds(int[] array, int target) {
+        int res = -1;
+        if (array == null || array.length == 0) {
+            return res;
+        }
+        int lo = -1;
+        int up = array.length;
+        while (lo + 1 < up) {
+            int mid = lo + (up - lo) / 2;
+            if (array[mid] < target) {
+                lo = mid;
+            } else {
+                up = mid;
+            }
+        }
+        return lo + 1;
+    }
+
+
+    /**
+     * 返回目标值的最大索引值
+     *
+     * @param array
+     * @param target
+     * @return
+     */
+    public int upperBounds(int[] array, int target) {
+        int res = -1;
+        if (array == null || array.length == 0) {
+            return res;
+        }
+        int lo = -1;
+        int up = array.length;
+        while (lo + 1 < up) {
+            int mid = lo + (up - lo) / 2;
+            if (array[mid] > target) {
+                up = mid;
+            } else {
+                lo = mid;
+            }
+        }
+        return up - 1;
+    }
+
     public static void main(String[] args) {
         int[] array = BaseDataSet.SORTED_ARRAY;
         BinarySearch search = new BinarySearch();
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(search.search(array, i));
-        }
+        System.out.println(search.search(array, 5));
+        System.out.println(search.lowerBounds(array, 5));
+        System.out.println(search.upperBounds(array, 5));
+
+        System.out.println(search.search(array, 25));
+        System.out.println(search.lowerBounds(array, 25));
+        System.out.println(search.upperBounds(array, 25));
     }
 }
