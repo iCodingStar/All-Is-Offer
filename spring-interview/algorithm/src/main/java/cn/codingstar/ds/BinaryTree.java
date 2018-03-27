@@ -9,6 +9,7 @@ package cn.codingstar.ds;
  * @software: IntelliJ IDEA
  * @version: 1.0
  * @resource: https://blog.csdn.net/eson_15/article/details/51138663
+ * https://www.cnblogs.com/Michaelwjw/p/6384428.html
  * @desc: 二叉搜索树
  */
 public class BinaryTree {
