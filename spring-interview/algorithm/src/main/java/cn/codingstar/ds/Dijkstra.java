@@ -9,7 +9,7 @@ package cn.codingstar.ds;
  * @software: IntelliJ IDEA
  * @version: 1.0
  * @resource: http://blog.51cto.com/ahalei/1387799
- * @desc: 地杰斯特拉算法实现
+ * @desc: 迪杰斯特拉算法实现
  */
 public class Dijkstra {
 
@@ -27,7 +27,6 @@ public class Dijkstra {
         boolean[] known = new boolean[vex.length];
         // 初始化
         for (int i = 0; i < vex.length; i++) {
-            known[i] = false;//顶点i的最短路径没有获取到
             dist[i] = matrix[vs][i];//顶点i的最短路径为"顶点vs"到"顶点i"的权
         }
         // 遍历次数为顶点数，每次找出一个顶点的最短路径
