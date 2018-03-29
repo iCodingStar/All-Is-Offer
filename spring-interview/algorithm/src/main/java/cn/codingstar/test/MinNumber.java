@@ -29,7 +29,7 @@ public class MinNumber {
 
     private static int getMinNumber(int[] num) {
         for (int i = 1; i < num.length; i++) {
-            if (num[i] == 0){
+            if (num[i] == 0) {
                 return i;
             }
         }

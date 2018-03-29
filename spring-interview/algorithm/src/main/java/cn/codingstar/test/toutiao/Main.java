@@ -1,4 +1,4 @@
-package cn.codingstar.offer.toutiao;
+package cn.codingstar.test.toutiao;
 
 import java.util.HashMap;
 import java.util.HashSet;
