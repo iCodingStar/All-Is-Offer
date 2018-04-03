@@ -46,23 +46,23 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String line = scanner.nextLine();
-        String[] values = line.trim().split(" ");
-        if (values.length < 1) {
-            return;
-        }
-        int[][] array = new int[values.length][values.length];
-        for (int i = 0; i < values.length; i++) {
-            array[0][i] = Integer.valueOf(values[i]);
-        }
-        int count = 1;
-        while (count < values.length) {
-            for (int i = 0; i < values.length; i++) {
-                array[count][i] = scanner.nextInt();
-            }
-            count++;
-        }
-        printArray(convert(array));
+//        Scanner scanner = new Scanner(System.in);
+//        String line = scanner.nextLine();
+//        String[] values = line.trim().split(" ");
+//        if (values.length < 1) {
+//            return;
+//        }
+//        int[][] array = new int[values.length][values.length];
+//        for (int i = 0; i < values.length; i++) {
+//            array[0][i] = Integer.valueOf(values[i]);
+//        }
+//        int count = 1;
+//        while (count < values.length) {
+//            for (int i = 0; i < values.length; i++) {
+//                array[count][i] = scanner.nextInt();
+//            }
+//            count++;
+//        }
+//        printArray(convert(array));
     }
 }
