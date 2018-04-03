@@ -10,12 +10,10 @@ import java.util.Scanner;
  * @time: 18-4-3 下午7:49
  * @software: IntelliJ IDEA
  * @version: 1.0
- * @resource:
- * @desc:
- *
- *  40
-    12 13 23 26
-    11 11 20 30
+ * @resource: https://blog.csdn.net/jeffleo/article/details/53504409
+ * @desc: 40
+ * 12 13 23 26
+ * 11 11 20 30
  */
 public class Main {
 
