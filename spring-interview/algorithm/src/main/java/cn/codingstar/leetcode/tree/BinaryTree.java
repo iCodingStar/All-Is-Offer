@@ -14,9 +14,7 @@ package cn.codingstar.leetcode.tree;
 
 ;import sun.reflect.generics.tree.Tree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class BinaryTree {
 
@@ -133,6 +131,50 @@ public class BinaryTree {
                     // 结点访问后，重置指针p
                     p = null;
                 }
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 层次遍历二叉树
+     *
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrderTraversal(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        List<Integer> level = new ArrayList<>();
+        // 初始当前层结点数量为1
+        int currentLevel = 1;
+        // 初始下一层结点数量为0
+        int nextLevel = 0;
+        while (queue.size() > 0) {
+            TreeNode node = queue.poll();
+            currentLevel--;
+            level.add(node.val);
+            if (node.left != null) {
+                queue.offer(node.left);
+                nextLevel++;
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+                nextLevel++;
+            }
+            if (currentLevel == 0) {
+                // 保存该层的结点数据
+                res.add(new ArrayList<>(level));
+                // 清空容器，用于下一层的保存法
+                level.clear();
+                // 更新下一层几点的数量
+                currentLevel = nextLevel;
+                // 初始化下下一层结点数
+                nextLevel = 0;
             }
         }
         return res;
