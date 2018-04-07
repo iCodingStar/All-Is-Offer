@@ -179,4 +179,38 @@ public class BinaryTree {
         }
         return res;
     }
+
+    private int max = 0x80000000;
+
+    /**
+     * 计算二叉树的最大路径和
+     *
+     * @param root
+     * @return
+     */
+    public int maxPathSum(TreeNode root) {
+        pathSumHelper(root);
+        return max;
+    }
+
+    /**
+     * 二叉树路径和辅助工具
+     *
+     * @param root
+     * @return
+     */
+    private int pathSumHelper(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = pathSumHelper(root.left);
+        int right = pathSumHelper(root.right);
+        // 连接父结点的最大路径是一、二、四这三种情况的最大值
+        int currentSum = Math.max(Math.max(left + root.val, right + root.val), root.val);
+        // 当前结点的最大路径是一、二、三、四这四种情况的最大值
+        int currentMax = Math.max(currentSum, left + right + root.val);
+        // 用当前最大值更新全局最大值
+        max = Math.max(currentMax, max);
+        return currentSum;
+    }
 }
