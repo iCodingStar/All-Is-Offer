@@ -213,4 +213,48 @@ public class BinaryTree {
         max = Math.max(currentMax, max);
         return currentSum;
     }
+
+    /**
+     * 二叉树的最小深度
+     *
+     * @param root
+     * @return
+     */
+    private int minDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int lmin = minDepth(root.left);
+        int rmin = minDepth(root.right);
+        // 如果访问到了叶子结点
+        if (lmin == 0 && rmin == 0) {
+            return 1;
+        }
+        if (lmin == 0) {
+            lmin = 0xfffffff;
+        }
+        if (rmin == 0) {
+            rmin = 0xfffffff;
+        }
+        return lmin < rmin ? lmin + 1 : rmin + 1;
+    }
+
+    /**
+     * 二叉树的最大深度
+     *
+     * @param root
+     * @return
+     */
+    private int maxDepth(TreeNode root) {
+        if (root == null)
+            return 0;
+        int lmax = maxDepth(root.left);
+        int rmax = maxDepth(root.right);
+
+        if (lmax == 0 && rmax == 0) {
+            return 1;
+        }
+
+        return lmax > rmax ? lmax + 1 : rmax + 1;
+    }
 }
