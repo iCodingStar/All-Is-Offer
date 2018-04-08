@@ -15,6 +15,11 @@ import java.util.Stack;
  */
 public class LongestValidParentheses {
     /**
+     * 1. stack里面装的一直是“还没配好对的那些可怜的括号的index”
+     * 2. 是'(‘的时候push
+     * 3. 是’)’的时候，说明可能配对了；看stack top是不是左括号，不是的话，push当前右括号
+     * 4. 是的话，pop那个配对的左括号，然后update res：i和top的（最后一个配不成对的）index相减，就是i属于的这一段的当前最长。如果一pop就整个栈空了，说明前面全配好对了，那res就是最大=i+1
+     *
      * @param s
      * @return
      */
