@@ -26,4 +26,32 @@ public class MaxSubArray {
         }
         return max;
     }
+
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        if (gas == null || cost == null)
+            return -1;
+        if (gas.length < cost.length) {
+            return -1;
+        }
+        int[] diff = new int[gas.length];
+        // 计算出站点油存量与到达下一站耗油量的差值
+        for (int i = 0; i < gas.length; i++) {
+            diff[i] = gas[i] - cost[i];
+        }
+        int leftGas = 0;
+        int sum = 0;
+        int startStation = 0;
+        for (int i = 0; i < gas.length; i++) {
+            leftGas += diff[i];
+            sum += diff[i];
+            if (sum < 0) {
+                startStation = i + 1;
+                sum = 0;
+            }
+        }
+        if (leftGas < 0)
+            return -1;
+        else
+            return startStation;
+    }
 }
