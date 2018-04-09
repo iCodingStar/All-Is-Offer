@@ -335,4 +335,46 @@ public class BinaryTree {
     }
 
 
+    /**
+     * 二叉搜索树寻找最近公共祖先结点
+     *
+     * @param root
+     * @param node1
+     * @param node2
+     * @return
+     */
+    public TreeNode getLastCommonAncestorForBinarySearchTree(TreeNode root, TreeNode node1, TreeNode node2) {
+        if (root == null || node1 == null || node2 == null) {
+            return null;
+        }
+        if (root.val > node1.val && root.val > node2.val) {
+            return getLastCommonAncestorForBinarySearchTree(root.left, node1, node2);
+        } else if (root.val < node1.val && root.val < node2.val) {
+            return getLastCommonAncestorForBinarySearchTree(root.right, node1, node2);
+        } else {
+            return root;
+        }
+    }
+
+    /**
+     * 普通二叉树的公共祖先结点
+     *
+     * @param root
+     * @param node1
+     * @param node2
+     * @return
+     */
+    public TreeNode getLastCommonAncestorByNormal(TreeNode root, TreeNode node1, TreeNode node2) {
+        if (root == null || node1 == root || node2 == root) {
+            return root;
+        }
+        // 查看左子树是否含有目标结点
+        TreeNode l = getLastCommonAncestorByNormal(root.left, node1, node2);
+        TreeNode r = getLastCommonAncestorByNormal(root.right, node1, node2);
+        if (l != null && r != null) {
+            return root;
+        }
+        // 向上标记
+        return l != null ? l : r;
+    }
 }
