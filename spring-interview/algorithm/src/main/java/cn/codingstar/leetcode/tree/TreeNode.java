@@ -19,6 +19,8 @@ public class TreeNode {
 
     public TreeNode right;
 
+    public TreeNode parent;
+
     public TreeNode() {
 
     }

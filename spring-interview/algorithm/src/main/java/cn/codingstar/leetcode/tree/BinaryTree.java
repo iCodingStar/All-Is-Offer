@@ -257,4 +257,82 @@ public class BinaryTree {
 
         return lmax > rmax ? lmax + 1 : rmax + 1;
     }
+
+    /**
+     * 寻找node1与node2的最近的公共祖先,时间复杂度O(n)
+     *
+     * @param root
+     * @param node1
+     * @param node2
+     * @return
+     */
+    public TreeNode getLastCommonAncestor(TreeNode root, TreeNode node1, TreeNode node2) {
+        TreeNode temp;
+        while (node1 != null) {
+            node1 = node1.parent;
+            // 逐个检查node1的父结点，看是不是其公共祖先
+            temp = node2;
+            while (temp != null) {
+                if (node1 == temp.parent) {
+                    return node1;
+                }
+                temp = temp.parent;
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * 将求公共祖先转化成求链表的相交结点,思路很nice
+     *
+     * @param root
+     * @param node1
+     * @param node2
+     * @return
+     */
+    public TreeNode getLastCommonAncestorByLinkedList(TreeNode root, TreeNode node1, TreeNode node2) {
+        if (root == null || node1 == null || node2 == null) {
+            return null;
+        }
+        // 将两个链表长度统一化
+        int len1 = high(root, node1);
+        int len2 = high(root, node2);
+        for (; len1 > len2; len1--) {
+            node1 = node1.parent;
+        }
+        for (; len2 > len1; len2--) {
+            node2 = node2.parent;
+        }
+
+        // 让两个链表同时走
+        while (node1 != null && node2 != null && node1 != node2) {
+            node1 = node1.parent;
+            node2 = node2.parent;
+        }
+
+        // 如果结束时，两个结点相同，说明找到了公共结点
+        if (node1 == node2) {
+            return node1;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 求node祖先结点的个数
+     *
+     * @param root
+     * @param node
+     * @return
+     */
+    private int high(TreeNode root, TreeNode node) {
+        int len = 0;
+        for (; node != null; node = node.parent) {
+            len++;
+        }
+        return len;
+    }
+
+
 }
