@@ -365,12 +365,14 @@ public class BinaryTree {
      * @return
      */
     public TreeNode getLastCommonAncestorByNormal(TreeNode root, TreeNode node1, TreeNode node2) {
+        // 发现目标结点，则通过返回值标记该子树发现了某个目标结点
         if (root == null || node1 == root || node2 == root) {
             return root;
         }
         // 查看左子树是否含有目标结点
         TreeNode l = getLastCommonAncestorByNormal(root.left, node1, node2);
         TreeNode r = getLastCommonAncestorByNormal(root.right, node1, node2);
+        // 查看返回值，判断当前的根结点是否为这两个结点的祖先结点
         if (l != null && r != null) {
             return root;
         }
