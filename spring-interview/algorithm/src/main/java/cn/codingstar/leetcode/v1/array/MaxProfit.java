@@ -1,7 +1,4 @@
-package cn.codingstar.leetcode.array;
-
-import java.util.ArrayList;
-import java.util.List;
+package cn.codingstar.leetcode.v1.array;
 
 /**
  * @author: CodingStar

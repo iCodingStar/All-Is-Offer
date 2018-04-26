@@ -1,4 +1,4 @@
-package cn.codingstar.leetcode.array;
+package cn.codingstar.leetcode.v1.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;

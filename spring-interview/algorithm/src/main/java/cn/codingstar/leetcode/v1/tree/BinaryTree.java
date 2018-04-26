@@ -1,4 +1,4 @@
-package cn.codingstar.leetcode.tree;
+package cn.codingstar.leetcode.v1.tree;
 
 /**
  * @author: CodingStar
@@ -12,7 +12,7 @@ package cn.codingstar.leetcode.tree;
  * @desc:
  */
 
-;import sun.reflect.generics.tree.Tree;
+;
 
 import java.util.*;
 

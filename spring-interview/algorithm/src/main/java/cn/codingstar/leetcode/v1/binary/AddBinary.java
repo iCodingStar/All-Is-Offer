@@ -1,4 +1,4 @@
-package cn.codingstar.leetcode.binary;
+package cn.codingstar.leetcode.v1.binary;
 
 /**
  * @author: CodingStar

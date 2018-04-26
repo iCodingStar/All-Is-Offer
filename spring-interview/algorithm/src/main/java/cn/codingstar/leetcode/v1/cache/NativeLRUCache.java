@@ -1,7 +1,6 @@
-package cn.codingstar.leetcode.cache;
+package cn.codingstar.leetcode.v1.cache;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author: CodingStar

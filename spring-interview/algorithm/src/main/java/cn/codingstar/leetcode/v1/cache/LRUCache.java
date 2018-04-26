@@ -1,4 +1,4 @@
-package cn.codingstar.leetcode.cache;
+package cn.codingstar.leetcode.v1.cache;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
